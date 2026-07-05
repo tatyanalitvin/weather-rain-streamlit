@@ -1,0 +1,12 @@
+# Дані (велике джерело; модель уже натренована й збережена в aussie_rain.joblib)
+weatherAUS.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
