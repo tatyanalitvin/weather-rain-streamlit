@@ -1,12 +1,3 @@
-"""Препроцесинг даних про погоду в Австралії (weatherAUS).
-
-Модуль повторює кроки препроцесингу з лекції "Дерева прийняття рішень та
-випадкові ліси": імпутація пропущених значень, масштабування числових ознак
-та one-hot кодування категоріальних ознак. Використовується як під час
-навчання моделі (`train_model.py`), так і під час інференсу у Streamlit-додатку
-(`app.py`) — завдяки чому нові дані обробляються рівно так само, як тренувальні.
-"""
-
 import numpy as np
 import pandas as pd
 from sklearn.impute import SimpleImputer
@@ -22,7 +13,7 @@ def preprocess_data(raw_df):
     # Прибираємо рядки без цільової ознаки або без RainToday
     df = raw_df.dropna(subset=["RainToday", "RainTomorrow"]).copy()
 
-    # Розбиття на train / val за роком (як у лекції)
+    # Розбиття на train / val за роком
     year = pd.to_datetime(df["Date"]).dt.year
     train_df = df[year < 2015]
     val_df = df[year == 2015]
